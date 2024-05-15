@@ -24,7 +24,7 @@ variable "name"{
  type=string
 default="name"
 }
-variable "version"{
+variable "sql_version"{
  type=string
  default="12.0"
 }
