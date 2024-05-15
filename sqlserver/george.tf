@@ -4,13 +4,13 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
-  name                         = "mssqlserver"
+  name                         = var.mssqlserver
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
-  version                      = "12.0"
+  version                      = var.12.0
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
-  minimum_tls_version          = "1.2"
+  minimum_tls_version          = var.1.2
 
   azuread_administrator {
     login_username = "AzureAD Admin"
