@@ -1,8 +1,8 @@
-resource "azurerm_resource_group" "databaserg" {
+resource "azurerm_resource_group" "george_ibrahim" {
   name     = "database-rg"
   location = "West Europe"
 }
-
+/*
 resource "azurerm_mssql_server" "azuresqlserver" {
   name                         = var.name
   resource_group_name          = azurerm_resource_group.databaserg.name
@@ -21,3 +21,4 @@ resource "azurerm_mssql_server" "azuresqlserver" {
     Environment = var.environment_tag
   }
 }
+*/
