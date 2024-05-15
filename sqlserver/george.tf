@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "george_ibrahim" {
+resource "azurerm_resource_group" "azuresqlserver" {
   name     = "database-rg"
   location = "West Europe"
 }
