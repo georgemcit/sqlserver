@@ -16,3 +16,14 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
+variable "environment"{
+ type=string
+}
+variable "name"{
+ type=string
+}
+variable "version"{
+ type=string
+}variable "minimum_tls_version"{
+ type=string
+}
