@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
-  name                         = var.mssqlserver
+  name                         = var.name
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
   version                      = var.version 
