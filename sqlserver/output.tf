@@ -18,13 +18,17 @@ variable "administrator_login_password"{
 }
 variable "environment"{
  type=string
+default="staging"
 }
 variable "name"{
  type=string
+default="name"
 }
 variable "version"{
  type=string
+ default="version"
 }
 variable "minimum_tls_version"{
  type=string
+ default="minimum_tls_version"
 }
