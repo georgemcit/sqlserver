@@ -24,6 +24,7 @@ variable "name"{
 }
 variable "version"{
  type=string
-}variable "minimum_tls_version"{
+}
+variable "minimum_tls_version"{
  type=string
 }
