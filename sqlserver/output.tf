@@ -26,9 +26,9 @@ default="name"
 }
 variable "version"{
  type=string
- default="version"
+ default="12.0"
 }
 variable "minimum_tls_version"{
  type=string
- default="minimum_tls_version"
+ default="1.2"
 }
