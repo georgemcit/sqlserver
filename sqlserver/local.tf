@@ -1,3 +1,4 @@
+/*
 locals{
   mssql_server=[for f in fileset("${path.module}/${var.sqlserver}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.sqlserver}/${f}"))]
   mssql_server_list = flatten([
@@ -28,3 +29,4 @@ resource "azurerm_mssql_server" "azuresqlserver" {
     Environment = var.environment_tag
   }
 }
+*/
