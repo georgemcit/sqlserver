@@ -1,5 +1,5 @@
 listofmysqlserver:
-  - servername: mssqlserver1
-  - servername: mssqlserver2
-  - servername: mssqlserver3
+  - name: mssqlserver1
+  - name: mssqlserver2
+  - name: mssqlserver3
   
