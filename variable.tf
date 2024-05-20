@@ -4,7 +4,6 @@ locals{
     for app in local.my_sql_app: [
       for serverapps in try(app.listofmysqlserver, []) :{
         name=serverapps.name
-        version=serverapps.version
       }
     ]
 ])
@@ -17,7 +16,7 @@ resource "azurerm_resource_group" "databaserg" {
 resource "azurerm_mssql_server" "azuresqlserver" {
   for_each            ={for sp in local.my_sql_app_list: "${sp.name}"=>sp }
   name                = each.value.name
-  version             = each.value.version
+  version             = var.version_number
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
   administrator_login          = var.administrator_login
