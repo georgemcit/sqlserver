@@ -16,7 +16,6 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
-/*
 variable "environment"{
  type=string
 default="staging"
@@ -33,4 +32,4 @@ variable "minimum_tls_version"{
  type=string
  default="1.2"
 }
-*/
+
