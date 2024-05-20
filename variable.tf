@@ -18,7 +18,7 @@ resource "azurerm_resource_group" "databaserg" {
 
 resource "azurerm_mssql_server" "azuresqlserver" {
   for_each            ={for sp in local.mysql_server_list: "${sp.name}"=>sp }
-  name                         = "mssqlserver"
+  name                         = "mysqlserver"
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
   version                      = "12.0"
