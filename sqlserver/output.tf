@@ -18,7 +18,7 @@ variable "administrator_login_password"{
 }
 variable "environment"{
  type=string
-default="staging"
+default="production"
 }
 variable "sql_server_name"{
  type=string
@@ -34,5 +34,5 @@ variable "minimum_tls_version"{
 }
 variable "sqlserver"{
  type=string
- default=" default="
+ default="sqlserver"
 }
