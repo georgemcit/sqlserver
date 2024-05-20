@@ -1,8 +1,8 @@
 locals{
-  sqlserver=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+  listsqlserver=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
   mssql_server_list = flatten([
     for app in local.mssql_server: [
-      for mysqlserver in try(app.listofmysqlserver, []) :{
+      for mysqlserver in try(app.listsqlserver, []) :{
         name=mysqlserver.mssqlserver
         version=mysqlserver.version
         minimum_tls_version=mysqlserver.minimum_tls_version 
