@@ -11,7 +11,7 @@ locals{
 ])
 }
 resource "azurerm_mssql_server" "azuresqlserver" {
-  name                         = "mssqlserver"
+  name                         = var.sql_server_name
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
   version                      = each.value.version
