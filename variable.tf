@@ -1,3 +1,4 @@
+/*
 resource "azurerm_resource_group" "databaserg" {
   name     = "database-rg"
   location = "West Europe"
@@ -21,3 +22,4 @@ resource "azurerm_mssql_server" "azuresqlserver" {
     environment = "production"
   }
 }
+*/
