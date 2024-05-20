@@ -5,11 +5,11 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
-/*
 variable "version_number"{
  type=number
  default="12.0"
 }
+/*
 variable "sqlserver"{
  type=string
  default="sqlserver"
