@@ -9,12 +9,11 @@ variable "version_number"{
  type=string
  default="12.0"
 }
-/*
 variable "sqlserver"{
  type=string
  default="sqlserver"
 }
-
+/*
 
 variable "environment_tag"{
  type=string
