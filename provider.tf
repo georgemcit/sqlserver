@@ -16,6 +16,7 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
+/*
 variable "environment_tag"{
  type=string
 default="production"
@@ -36,3 +37,4 @@ variable "sqlserver"{
  type=string
  default="sqlserver"
 }
+*/
