@@ -3,7 +3,7 @@ locals{
   sqlserverlist = flatten([
     for app in local.mssql_server : [
       for mssqlserver in try(app.listofmssqlserver, []) :{
-        name=mssql_server.mssqlservername
+        name=mssqlserver.mssqlservername
 
       }
     ]
