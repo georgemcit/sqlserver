@@ -6,7 +6,7 @@ variable "administrator_login_password"{
   type=string
 }
 variable "version_number"{
- type=strig
+ type=string
  default="12.0"
 }
 /*
