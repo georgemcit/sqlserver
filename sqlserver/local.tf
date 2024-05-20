@@ -10,10 +10,10 @@ locals{
     ]
 ])
 }
-resource "azurerm_mssql_server" "azuresqlserver" {
+resource "azurerm_mssql_server" "george" {
   name                         = var.sql_server_name
-  resource_group_name          = azurerm_resource_group.george_ibrahim.name
-  location                     = azurerm_resource_group.george_ibrahim.location
+  resource_group_name          = azurerm_resource_group.george.name
+  location                     = azurerm_resource_group.george.location
   version                      = each.value.version
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
