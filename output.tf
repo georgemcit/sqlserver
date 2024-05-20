@@ -5,6 +5,10 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
+variable "sqlserver"{
+ type=string
+ default="sqlserver"
+}
 /*
 variable "environment_tag"{
  type=string
@@ -21,10 +25,6 @@ variable "sql_version"{
 variable "minimum_tls_version"{
  type=string
  default="1.2"
-}
-variable "sqlserver"{
- type=string
- default="sqlserver"
 }
 */
 
