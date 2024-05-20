@@ -15,23 +15,14 @@ resource "azurerm_resource_group" "databaserg" {
   name     = "database-rg"
   location = "West Europe"
 }
-resource "azurerm_mssql_server_plan" "george" {
-  for_each            ={for sp in local.mssqlserver: "${sp.name}"=>sp }
-  name                         = each.value.name
+resource "azurerm_mssql_server" "george" {
+  for_each            ={for mssqlserver in local.mssqlserver: "${sp.name}"=>mssqlserver }
+  name                = each.value.name
   resource_group_name = azurerm_resource_group.databaserg.name
   location            = azurerm_resource_group.databaserg.location
   version             = each.value. version
   minimum_tls_versione            = each.value.minimum_tls_version
-}
 
-resource "azurerm_mssql_server" "georgeibrahim" {
-  for_each            = azurerm_service_plan.george
-  name                = each.value.name
-  resource_group_name = azurerm_resource_group.databaserg.name
-  location            = azurerm_resource_group.databaserg.location
-  administrator_login          = var.administrator_login
-  administrator_login_password = var.administrator_login_password
-  service_plan_id     = each.value.id
 
 azuread_administrator {
     login_username = "AzureAD Admin"
