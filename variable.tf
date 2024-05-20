@@ -1,11 +1,11 @@
 locals{
-  listmysqlserver=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
-  mysql_server_list = flatten([
-    for app in local.listmysqlserver: [
-      for mysqlserver in try(app.listmysqlserver, []) :{
-        name=mysqlserver.mysqlserver
-        version=mysqlserver.version
-        minimum_tls_version=mysqlserver.minimum_tls_version 
+  listmssqlserver=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+  mssql_server_list = flatten([
+    for app in local.listmssqlserver: [
+      for mssqlserver in try(app.listmssqlserver, []) :{
+        name=mysqlserver.mssqlserver
+        version=mssqlserver.version
+        minimum_tls_version=mssqlserver.minimum_tls_version 
       }
     ]
 ])
@@ -17,8 +17,8 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
-  for_each            ={for sp in local.mysql_server_list: "${sp.name}"=>sp }
-  name                         = "mysqlserver"
+  for_each            ={for sp in local.mssql_server_list: "${sp.name}"=>sp }
+  name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
   version                      = "12.0"
