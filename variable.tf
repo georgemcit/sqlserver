@@ -4,7 +4,6 @@ locals{
     for app in local.mssql_server : [
       for mssql_server in try(app.listofmssqlserver, []) :{
         name=mssql_server.mssqlservername
-        allocation_method=mssqlserver.allocation_method
 
       }
     ]
