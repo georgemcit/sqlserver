@@ -1,10 +1,10 @@
-listmysqlserver:
--name=mysqlserver
+listmssqlserver:
+-name=mssqlserver
  version=12.0
  minimum_tls_version=1.2
--name=mysqlserver2
+-name=mssqlserver2
  version=12.0
  minimum_tls_version=1.2
--name=mysqlserver3
+-name=mssqlserver3
  version=12.0
  minimum_tls_version=1.2
