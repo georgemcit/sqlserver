@@ -3,7 +3,7 @@ locals{
   my_sql_app_list = flatten([
     for app in local.sql_app: [
       for georgeapps in try(app.listofmysqlserver, []) :{
-        name=georgeapps.policyname
+        name=georgeapps.name
       }
     ]
 ])
