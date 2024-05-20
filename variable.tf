@@ -1,9 +1,9 @@
 locals{
-  my-sql-app=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
-  my-sql-app_list = flatten([
+  my_sql_app=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+  my_sql_app_list = flatten([
     for app in local.sql_app: [
       for mysqlapps in try(app.listofmysqlserver, []) :{
-        name=mysqlapps.name
+        name = mysqlapps.name
       }
     ]
 ])
@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
-  for_each            ={for mssqlserver in local.my-sql-app_list: "${mssqlserver.name}"=>mssqlserver }
+  for_each            ={for mssqlserver in local.my_sql_app_list: "${mssqlserver.name}"=>mssqlserver }
   name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
