@@ -1,5 +1,5 @@
 locals{
-  my_sql_app=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+  my_sql_app=[for f in fileset("${path.module}/${var.sqlserver}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.sqlserver}/${f}"))]
   my_sql_app_list = flatten([
     for app in local.my_sql_app: [
       for serverapps in try(app.listofmysqlserver, []) :{
