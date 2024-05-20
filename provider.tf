@@ -17,10 +17,10 @@ provider "azurerm"{
   client_secret=var.client_secret
   tenant_id=var.tenant_id
 }
+
 variable "subscription_id"{
   type=string
 }
-
 variable "client_id"{
   type=string
 }
