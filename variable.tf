@@ -18,7 +18,7 @@ resource "azurerm_mssql_server" "azuresqlserver" {
   name                = each.value.name
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
-  version                      = "12.0"
+  version                      = each.value.version
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
   minimum_tls_version          = "1.2"
