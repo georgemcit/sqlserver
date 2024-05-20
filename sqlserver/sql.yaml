@@ -2,7 +2,7 @@ listofmysqlserver:
   - name: mssqlserver1
     version: 12.0
   - name: mssqlserver2
-    version: 02.0
+    version: 12.0
   - name: mssqlserver3
-    version: 05.0
+    version: 12.0
   
