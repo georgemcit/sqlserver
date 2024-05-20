@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "george_ibrahim" {
 /*
 resource "azurerm_mssql_server" "azuresqlserver" {
   name                         = var.name
-  resource_group_name          = azurerm_resource_group.databaserg.name
-  location                     = azurerm_resource_group.databaserg.location
+  resource_group_name          = azurerm_resource_group.database-rg.name
+  location                     = azurerm_resource_group.database-rg.location
   version                      = var.version 
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
