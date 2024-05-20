@@ -20,9 +20,9 @@ variable "environment"{
  type=string
 default="staging"
 }
-variable "name"{
+variable "sql_server_name"{
  type=string
-default="name"
+default="mssqlserver"
 }
 variable "sql_version"{
  type=string
