@@ -18,7 +18,7 @@ resource "azurerm_mssql_server" "george" {
   name                = each.value.name
   resource_group_name = azurerm_resource_group.databaserg.name
   location            = azurerm_resource_group.databaserg.location
-  version             = var.version.number
+  version             = var.version_number
   minimum_tls_versione            = "1.2"
 
 
