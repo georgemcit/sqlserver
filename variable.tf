@@ -14,6 +14,7 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
+  for_each            ={for mssqlserver in local.my-sql-app_list: "${mssqlserver.name}"=>mssqlserver }
   name                         = "mssqlserver"
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
