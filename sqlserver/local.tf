@@ -12,8 +12,8 @@ locals{
 }
 resource "azurerm_mssql_server" "azuresqlserver" {
   name                         = var.sql_server_name
-  resource_group_name          = azurerm_resource_group.databaserg.name
-  location                     = azurerm_resource_group.databaserg.location
+  resource_group_name          = azurerm_resource_group.database-rg.name
+  location                     = azurerm_resource_group.database-rg.location
   version                      = each.value.version
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
