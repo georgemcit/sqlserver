@@ -9,7 +9,7 @@ variable "sqlserver"{
  type=string
  default="sqlserver"
 }
-variable "version"{
+variable "version_number"{
  type=number
  default="12.0"
 }
