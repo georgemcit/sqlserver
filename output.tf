@@ -5,12 +5,11 @@ variable "administrator_login"{
 variable "administrator_login_password"{
   type=string
 }
-/*
 variable "sqlserver"{
  type=string
  default="sqlserver"
 }
-
+/*
 variable "environment_tag"{
  type=string
 default="production"
