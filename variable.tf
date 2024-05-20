@@ -2,7 +2,7 @@ locals{
   mssql_server=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
   sqlserverlist = flatten([
     for app in local.mssql_server : [
-      for mssql_server in try(app.listofmssql_server, []) :{
+      for mssql_server in try(app.listofmssqlserver, []) :{
         name=mssql_server.mssqlservername
         allocation_method=mssqlserver.allocation_method
 
