@@ -32,7 +32,7 @@ variable "minimum_tls_version"{
  type=string
  default="1.2"
 }
-variable "sqlfolder"{
+variable "sqlserver"{
  type=string
- default="sqlfolder"
+ default="sqlserver"
 }
