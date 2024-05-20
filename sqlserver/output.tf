@@ -32,4 +32,7 @@ variable "minimum_tls_version"{
  type=string
  default="1.2"
 }
-
+variable "sqlserver"{
+ type=string
+ default=" default="
+}
