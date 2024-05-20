@@ -20,10 +20,10 @@ resource "azurerm_mssql_server" "azuresqlserver" {
   name                         = each.value.name
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
-  version                      = each.value.version
+  version                      = each.number.version
   administrator_login          = var.administrator_login
   administrator_login_password = var.administrator_login_password
-  minimum_tls_version          = each.value.minimum_tls_version
+  minimum_tls_version          = each.number.minimum_tls_version
 
   azuread_administrator {
     login_username = "AzureAD Admin"
