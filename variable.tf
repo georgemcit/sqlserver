@@ -14,7 +14,7 @@ resource "azurerm_resource_group" "databaserg" {
   location = "West Europe"
 }
 resource "azurerm_mssql_server" "george" {
-  for_each            ={for mssqlserver in local.mysql_server: "${msyqlserver.name}"=>mssqlserver }
+  for_each            ={for sp in local.azurewafpolicy_list: "${sp.name}"=>sp }
   name                = each.value.name
   resource_group_name = azurerm_resource_group.databaserg.name
   location            = azurerm_resource_group.databaserg.location
