@@ -2,7 +2,6 @@ variable "version_number"{
  type=number
  default="12.0"
 }
-/*
 variable "administrator_login"{
   type=string
 }
@@ -14,7 +13,7 @@ variable "sqlserver"{
  default="sqlserver"
 }
 
-
+/*
 variable "environment_tag"{
  type=string
 default="production"
