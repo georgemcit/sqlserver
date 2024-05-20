@@ -11,6 +11,7 @@ locals{
 ])
 }
 resource "azurerm_mssql_server" "george" {
+  for_each            ={for sp in local.mssql_server_list: "${sp.name}"=>sp }
   name                         = var.sql_server_name
   resource_group_name          = azurerm_resource_group.george.name
   location                     = azurerm_resource_group.george.location
