@@ -1,3 +1,13 @@
+locals{
+  my-sql-app=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+   my-sql-app_list = flatten([
+    for app in local.sql_app: [
+      for mysqlapps in try(app.listofmysqlserver, []) :{
+        name=mysqlapps.name
+      }
+    ]
+])
+}
 resource "azurerm_resource_group" "databaserg" {
   name     = "database-rg"
   location = "West Europe"
