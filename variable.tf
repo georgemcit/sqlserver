@@ -4,6 +4,7 @@ locals{
     for app in local.my_sql_app: [
       for serverapps in try(app.listofmysqlserver, []) :{
         name=serverapps.name
+        version=serverapps.version
       }
     ]
 ])
