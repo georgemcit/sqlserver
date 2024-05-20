@@ -1,3 +1,16 @@
+locals{
+  mssql_server=[for f in fileset("${path.module}/${var.sqlserver}", "[^_]*.yaml") : yamldecode(file("${path.module}/${var.sqlserver}/${f}"))]
+  mssql_server_list = flatten([
+    for app in local.mssql_server: [
+      for mysqlserver in try(app.listofmysqlserver, []) :{
+        name=mysqlserver.mssqlserver
+        version=mysqlserver.version
+        minimum_tls_version=mysqlserver.minimum_tls_version 
+      }
+    ]
+])
+}
+
 resource "azurerm_resource_group" "databaserg" {
   name     = "database-rg"
   location = "West Europe"
