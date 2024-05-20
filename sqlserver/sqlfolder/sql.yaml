@@ -1,4 +1,3 @@
-
 sqlserver:
 -name=mssqlserver
  version=12.0
