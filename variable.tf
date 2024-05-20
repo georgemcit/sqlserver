@@ -1,7 +1,7 @@
 locals{
-  mssql_server=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
+  mssqlserver=[for f in fileset("${path.module}/sqlserver", "[^_]*.yaml") : yamldecode(file("${path.module}/sqlserver/${f}"))]
   sqlserverlist = flatten([
-    for app in local.mssql_server : [
+    for app in local.mssqlserver : [
       for mssqlserver in try(app.listofmssqlserver, []) :{
         name=mssqlserver.mssqlservername
 
@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "databaserg" {
 }
 
 resource "azurerm_mssql_server" "azuresqlserver" {
-  for_each            ={for sp in local.mssql_server: "${sp.name}"=>sp }
+  for_each            ={for sp in local.mssqlserver: "${sp.name}"=>sp }
   name                         = each.value.name
   resource_group_name          = azurerm_resource_group.databaserg.name
   location                     = azurerm_resource_group.databaserg.location
